@@ -5,7 +5,9 @@
     <meta name="author" content="Aman Ahuja" />
     <title>usage of python data libraries</title>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/2.10.0/d3.v2.min.js"></script>
+	<!-- <link href="http://nvd3.org/src/nv.d3.css" rel="stylesheet"> --> 
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<!-- <script src="http://nvd3.org/nv.d3.js"></script> --> 
     <style>
         html, body {
             height: 100%;
@@ -14,7 +16,7 @@
 			padding-top: 0;
 		}
 		.container {
-			border-top: 60px solid transparent;
+			//border-top: 60px solid transparent;
 		}
 		footer {
             color: #666;
@@ -41,7 +43,9 @@
         .wrapper > .container {
             padding-top: 60px;
         }
-    </style>
+		
+		/* CSS for d3 dom elements*/
+	   </style>
   </head>
   <body>
     <div class="wrapper">
@@ -50,15 +54,11 @@
 			<h1>usage of python data analysis apis</h1>
 		</section>
         <header class="hero-unit">
-		    {% if name %}
-			<p>Hello {{ name }}!</p>
-			{% else %}
-			<p>Hello World!</p>
-			{% endif %}
-			<p>None</p>
+		    &nbsp;
         </header>
 		<section>
 		<div class="datagraph"></div>
+
 		</section>
       </div>
       <div class="push"><!--//--></div>
@@ -70,5 +70,5 @@
       </div>
     </footer>
   </body>
-  <script type="text/javascript" src="static/datagraph.js"></script>
+  <script type="text/javascript" src="static/bargraph.js"></script>
 </html>

@@ -31,6 +31,7 @@ node.append("rect")
 		//return Math.log(d.repo_count+1)*50}
 		return d.repo_count / 100 }
 		)
+	.attr("opacity", 0.5)
 	.attr("fill", "blue");
 
 node.append("rect")
@@ -41,4 +42,39 @@ node.append("rect")
 		//return Math.log(d.repo_count+1)*50}
 		return d.followers / 100}
 		)
-	.attr("fill", "red");
+	.attr("fill", "red")
+	.attr("opacity", 0.5);
+
+var legend_info = [
+		{"item": "Repo Count", "color" : "blue",
+			"desc": "(Number of repos using the lib)"},
+		{"item" : "Follower Count", "color" : "red",
+			"desc": "(Followers of any repo using the lib)"}];
+
+var legend = svg.selectAll(".legend")
+	.data(legend_info).enter()
+	.append("g")
+	.attr("class", "legend")
+	.attr("tranform", function(d, i) {"translate(50," + i * 10 + ")";});
+
+legend.append("rect")
+	.attr("width", 60)
+	.attr("height", 15)
+	.attr("x", svgW - 100)
+	.attr("y", function(d,i) {return i * 60 + 90})
+	.attr("fill",  function (d) {return d.color});
+	
+legend.append("text")
+	.attr("x", svgW - 110)
+	.attr("y", function(d,i) {return i * 60 + 97})
+	.attr("dy", ".35em")
+	.style("text-anchor", "end")
+	.text(function(d) { return d.item })
+
+legend.append("text")
+	.attr("x", svgW - 110)
+	.attr("y", function(d,i) {return i * 60 + 117})
+	.attr("dy", ".35em")
+	.style("text-anchor", "end")
+	.text(function(d) { return d.desc })
+// legend .append("h2").text("Hello world.")

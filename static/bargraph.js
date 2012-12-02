@@ -1,6 +1,6 @@
 //Width and height
 var svgW = 1100;
-var svgH = 2000;
+var svgH = 1500;
 var barPadding = 1;
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40};
@@ -15,12 +15,14 @@ var node = svg.selectAll(".node").data(data)
 	.enter().append("g")
 	.attr("class", "node");
 
-node.append("text")
+node.append("a")
 	.attr("height", 10)
+	.attr("class", "target-lib")
+	.attr("xlink:href", function (d) { return d.library_name; } )
+	.append("text").text(function(d) { return d.library_name; } )
 	.attr("x", 10)
-	.attr("y", function(d, i) {return i * 15 + 10})
-	.text(function(d) { return d.library_name; } );
-
+	.attr("y", function(d, i) {return i * 15 + 10});
+	
 node.append("rect")
 	.attr("height", 10)
 	.attr("x", 150)
@@ -30,7 +32,6 @@ node.append("rect")
 		return d.repo_count * scale}
 		)
 	.attr("fill", "steelblue");
-		
 
 node.append("rect")
 	.attr("height", 10)

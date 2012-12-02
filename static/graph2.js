@@ -24,7 +24,12 @@ node.append("a")
 	.attr("y", function(d, i) {return i * 22 + 18});
 	
 // Bar graph 
-node.append("rect")
+var bar = node.append("g");
+// - bar title
+bar.append("title").text(function (d) {return d.followers + " people follow repos using " + d.library_name} );
+
+// - bar rect
+bar.append("rect")
 	.attr("height", 18)
 	.attr("x", 150)
 	.attr("y", function(d, i) {return i * 22 + 5})
@@ -32,5 +37,5 @@ node.append("rect")
 		//return Math.log(d.repo_count+1)*50}
 		return d.followers / 300}
 		)
-	.attr("fill", "red")
-	.attr("opacity", 0.5);
+	.attr("opacity", 1)
+	.attr("fill", function (d,i) {return "rgb(" + (200 + 5 * (i % 10)) + ", 0 ,0)";});

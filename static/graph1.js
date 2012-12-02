@@ -24,14 +24,20 @@ node.append("a")
 	.attr("y", function(d, i) {return i * 22 + 18});
 	
 // Bar graph 
-node.append("rect")
+var bar = node.append("g");
+// - bar title
+bar.append("title").text(function (d) {return d.repo_count + " repos use " + d.library_name} );
+
+// - bar rect
+bar.append("rect")
 	.attr("height", 18)
 	.attr("x", 120)
 	.attr("y", function(d, i) {return i * 22 + 5})
 	.attr("width", function(d) {
 		//return Math.log(d.repo_count+1)*50}
-		return d.repo_count / 100 }
+		return d.repo_count / 60 }
 		)
-	.attr("opacity", 0.5)
-	.attr("fill", "blue");
+	.attr("title", "test")
+	.attr("opacity", 1)
+	.attr("fill", function (d,i) {return "rgb(0, 0, " + (200 + 5 * (i % 10)) + ")";});
 

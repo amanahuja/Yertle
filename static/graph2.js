@@ -18,7 +18,7 @@ var node = svg.selectAll(".node").data(data)
 node.append("a")
 	.attr("height", 18)
 	.attr("class", "target-lib")
-	.attr("xlink:href", function (d) { return d.library_name; } )
+	.attr("xlink:href", function (d) { return 'https://github.com/search?q=' + d.library_name + '&type=Repositories&l=Python'; } )
 	.append("text").text(function(d) { return d.library_name; } )
 	.attr("x", 10)
 	.attr("y", function(d, i) {return i * 22 + 18});

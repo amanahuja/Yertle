@@ -39,11 +39,9 @@
         .push {
             height: 63px;
         }
-        /* not required for sticky footer; just pushes hero down a bit */
-        .wrapper > .container {
-            padding-top: 60px;
-        }
-		
+        .hero-unit { 
+			padding: 40px 50px;
+			}
 		/* CSS for d3 dom elements*/
 	   </style>
   </head>
@@ -54,7 +52,11 @@
 			<h1>usage of python data analysis apis</h1>
 		</section>
         <header class="hero-unit">
-		    &nbsp;
+		    <p>counts the number of (public) repos that use these python data analysis libraries. <ul>
+			<li>currently querying github only. </li>
+			<li>graphs over time will be posted once we have enough data points.</li>
+			<li>started gathering data 12/2/2012</li>
+			<li><i>github API, requests, flask, d3.js, heroku</i></li>
         </header>
 		<section>
 		<div class="datagraph"></div>

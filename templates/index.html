@@ -1,7 +1,74 @@
-<!doctype html>
-<title>Hello from Flask</title>
-{% if name %}
-  <h1>Hello {{ name }}!</h1>
-{% else %}
-  <h1>Hello World!</h1>
-{% endif %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Aman Ahuja" />
+    <title>usage of python data libraries</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/2.10.0/d3.v2.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+		body {
+			padding-top: 0;
+		}
+		.container {
+			border-top: 60px solid transparent;
+		}
+		footer {
+            color: #666;
+            background: #222;
+            padding: 17px 0 18px 0;
+            border-top: 1px solid #000;
+        }
+        footer a {
+            color: #999;
+        }
+        footer a:hover {
+            color: #efefef;
+        }
+        .wrapper {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -63px;
+        }
+        .push {
+            height: 63px;
+        }
+        /* not required for sticky footer; just pushes hero down a bit */
+        .wrapper > .container {
+            padding-top: 60px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+		<section>
+			<h1>usage of python data analysis apis</h1>
+		</section>
+        <header class="hero-unit">
+		    {% if name %}
+			<p>Hello {{ name }}!</p>
+			{% else %}
+			<p>Hello World!</p>
+			{% endif %}
+			<p>None</p>
+        </header>
+		<section>
+		<div class="datagraph"></div>
+		</section>
+      </div>
+      <div class="push"><!--//--></div>
+	</div>
+	
+    <footer>
+      <div class="container">
+        <p>Aman Ahuja / @amanqa</p>
+      </div>
+    </footer>
+  </body>
+  <script type="text/javascript" src="static/datagraph.js"></script>
+</html>

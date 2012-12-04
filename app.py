@@ -5,10 +5,15 @@ from flask import render_template
 app = Flask(__name__)
 
 @app.route('/')
-@app.route('/<name>')
-def hello(name=None):
+def home(name=None):
     return render_template('index.html', name=name)
-    
+
+'''
+@app.route('/<lib>')
+def detail(lib=None):
+    return render_template('lib_details.html', lib=lib)
+'''
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)

@@ -43,7 +43,7 @@
 			padding: 40px 50px;
 			}
 		.issue-list h4 { }
-		.issue-list { max-height: 300px; overflow: hidden; font-size:11px }
+		.issue-list { max-height: 225px; overflow-y: scroll; font-size:11px }
 		/* CSS for d3 dom elements*/
 	   </style>
   </head>
@@ -64,8 +64,9 @@
 				<i><small>built on python: github API, requests, flask, d3.js, heroku</small></i>
 			</header>
 			</div>
-			<div class="span3 issue-list">
-				<h4>Todo/ Work-in-Progress:</h4><ul>
+			<div class="span3">
+				<h4>Todo/ Work-in-Progress:</h4>
+				<div class="issue-list"><ul>
 				{% for issue in issues %}
 					<li><a 
 						{% if issue.state == 'closed' %} style="text-decoration:line-through;" {% endif %}
@@ -73,7 +74,7 @@
 				{% else %}
 					<em>Unbelievable. No issues pending!</em>
 				{% endfor %} 
-				</ul>
+				</ul></div>
 				<i><small>(Issues from <a href="" target=new>github</a>).</small></i>
 			</div>
 		</div>

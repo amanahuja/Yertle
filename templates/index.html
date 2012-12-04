@@ -5,9 +5,9 @@
     <meta name="author" content="Aman Ahuja" />
     <title>usage of python data libraries</title>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
-	<!-- <link href="http://nvd3.org/src/nv.d3.css" rel="stylesheet"> --> 
+	<!-- <link href="http://nvd3.org/src/nv.d3.css" rel="stylesheet"> -->
 	<script src="http://d3js.org/d3.v3.min.js"></script>
-	<!-- <script src="http://nvd3.org/nv.d3.js"></script> --> 
+	<!-- <script src="http://nvd3.org/nv.d3.js"></script> -->
     <style>
         html, body {
             height: 100%;
@@ -39,7 +39,7 @@
         .push {
             height: 63px;
         }
-        .hero-unit { 
+        .hero-unit {
 			padding: 40px 50px;
 			}
 		/* CSS for d3 dom elements*/
@@ -49,14 +49,25 @@
     <div class="wrapper">
       <div class="container">
 		<section>
-			<h1>usage of python data analysis apis</h1>
+			<h1>usage of python data analysis libraries</h1>
 		</section>
         <header class="hero-unit">
-		    <p>counts the number of (public) repos that use these python data analysis libraries. <ul>
-			<li>currently querying github repos only. </li>
-			<li>improved graphs and plots over time will be posted once more data points are available.</li>
-			<li>started gathering weekly data snapshots as of 12/2/2012</li>
-			<li><i>built on python: github API, requests, flask, d3.js, heroku</i></li>
+		<div class="row">
+			<div class="span7">
+				<p>counts the number of (public) repos that use these python data analysis libraries. <ul>
+					<li>currently querying github repos only. </li>
+					<li>improved graphs and plots over time will be posted once more data points are available.</li>
+					<li>started gathering weekly data snapshots as of 12/2/2012</li>
+				</ul></p>
+				<i><small>built on python: github API, requests, flask, d3.js, heroku</small></i>
+			</div>
+			<div class="span3">
+				<p>Todo/ Work-in-Progress:<ul>
+				<li></li>
+				</ul></p>
+				<i><small>(Issues from <a href="" target=new>github</a>)</small></i>
+			</div>
+		</div>
         </header>
 		<section>
 		<div class="row">
@@ -78,7 +89,7 @@
       </div>
       <div class="push"><!--//--></div>
 	</div>
-	
+
     <footer>
       <div class="container">
         <p>Aman Ahuja / <a href="https://twitter.com/AmanQA">@amanqa</a></p>

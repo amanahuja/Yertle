@@ -27,11 +27,26 @@ def get_issue_list():
     url = root_url + '/repos/amanahuja/lib-stats/issues'
     r = requests.get(url)
     results = json.loads(r.content)
+    
+    #If list is small, get closed issues as well.
+    if len(results) < 5: 
+        url = url + '?state=closed'
+        r = requests.get(url)
+        results = results + json.loads(r.content)    
     issue_list = []
+    
+    #limit dictionary
     for ii in results: 
-        issue_list.append(ii['body'])
+        issue = {}
+        issue['title'] = ii['title']
+        issue['body'] = ii['body']
+        issue['url'] = ii['html_url']
+        issue['state'] = ii['state']
+        issue_list.append(issue)
+    
     return issue_list
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
+    app.debug = True
     app.run(host='0.0.0.0', port=port)

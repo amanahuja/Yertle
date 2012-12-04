@@ -43,7 +43,7 @@
 			padding: 40px 50px;
 			}
 		.issue-list h4 { }
-		.issue-list { font-size:11px }
+		.issue-list { max-height: 300px; overflow: hidden; font-size:11px }
 		/* CSS for d3 dom elements*/
 	   </style>
   </head>
@@ -53,28 +53,30 @@
 		<section>
 			<h1>usage of python data analysis libraries</h1>
 		</section>
-        <header class="hero-unit">
 		<div class="row">
-			<div class="span7">
+			<div class="span8">
+			<header class="hero-unit">
 				<p>counts the number of (public) repos that use these python data analysis libraries. <ul>
 					<li>currently querying github repos only. </li>
 					<li>improved graphs and plots over time will be posted once more data points are available.</li>
 					<li>started gathering weekly data snapshots as of 12/2/2012</li>
 				</ul></p>
 				<i><small>built on python: github API, requests, flask, d3.js, heroku</small></i>
+			</header>
 			</div>
 			<div class="span3 issue-list">
 				<h4>Todo/ Work-in-Progress:</h4><ul>
 				{% for issue in issues %}
-					<li>{{ issue }}</li>
+					<li><a 
+						{% if issue.state == 'closed' %} style="text-decoration:line-through;" {% endif %}
+					href="{{ issue.url }}">{{ issue.title }}</a>: {{ issue.body[:100] }}...</li>
 				{% else %}
-					<li><em>Unbelievable.  No issues here so far</em>
+					<em>Unbelievable. No issues pending!</em>
 				{% endfor %} 
 				</ul>
-				<i><small>(Issues from <a href="" target=new>github</a>)</small></i>
+				<i><small>(Issues from <a href="" target=new>github</a>).</small></i>
 			</div>
 		</div>
-        </header>
 		<section>
 		<div class="row">
 			<div class="span5">

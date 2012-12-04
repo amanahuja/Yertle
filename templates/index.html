@@ -42,6 +42,8 @@
         .hero-unit {
 			padding: 40px 50px;
 			}
+		.issue-list h4 { }
+		.issue-list { font-size:11px }
 		/* CSS for d3 dom elements*/
 	   </style>
   </head>
@@ -61,10 +63,14 @@
 				</ul></p>
 				<i><small>built on python: github API, requests, flask, d3.js, heroku</small></i>
 			</div>
-			<div class="span3">
-				<p>Todo/ Work-in-Progress:<ul>
-				<li></li>
-				</ul></p>
+			<div class="span3 issue-list">
+				<h4>Todo/ Work-in-Progress:</h4><ul>
+				{% for issue in issues %}
+					<li>{{ issue }}</li>
+				{% else %}
+					<li><em>Unbelievable.  No issues here so far</em>
+				{% endfor %}
+				</ul>
 				<i><small>(Issues from <a href="" target=new>github</a>)</small></i>
 			</div>
 		</div>

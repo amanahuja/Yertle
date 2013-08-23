@@ -1,7 +1,7 @@
 
 import requests
 from datetime import datetime
-import os
+import os, csv
 
 from celery import Celery
 
@@ -12,10 +12,11 @@ celery = Celery(
   )
 
 @celery.task
-def get_counts_from_github():
+def get_counts_from_github(libs = None):
   api_url = 'https://api.github.com/legacy/repos/search/'
 
-  libs = get_list_of_libraries()
+  if libs is None:  
+    libs = get_list_of_libraries()
 
   lib_data = []
 
@@ -78,21 +79,34 @@ def _get_lib_info(url, params={}, page = 1):
 def get_timestamp():
   return datetime.now().strftime('%Y-%m-%d')
 
-def get_list_of_libraries():
-  list_of_libs = [
-      'appinst',
-      'apptools',
-      'basemap',
-      'biopython',
-      'bitarray',
-      'blist',
-      'blockcanvas',
-      'bsdiff4',
-      'casuarius',
-      'chaco',
-      'cloud',
-      'codetools',
-      'configobj',
-      'coverage',
-      ]
-  return list_of_libs
+def get_list_of_libraries(file_path = None, size=None):
+  if file_path is None: 
+    file_path = 'data/library_list.csv'
+
+  list_of_libs = []
+  
+  instream = csv.reader(open(file_path, 'rb'))
+
+  for row in instream: 
+    list_of_libs.append(row.strip())
+
+  if size is None: 
+    return list_of_libs
+  else:
+    assert isinstance(size, int)
+    return list_of_libs[:size]
+
+def write_data_to_file(data):
+  TIMESTAMP = get_timestamp()
+  filename = 'libdata_{}'.format(TIMESTAMP)  
+  filepath = os.path.join('data/', filename)
+
+  data_keys = data[0].keys()
+
+  with open(filename, 'wb') as csvfile:
+    dict_writer = csv.DictWriter(csvfile, data_keys)
+    dict_writer.writer.writerow(data_keys)
+
+    for dd in data: 
+      dict_writer.writerow(dd)
+

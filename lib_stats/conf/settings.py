@@ -11,8 +11,7 @@ class FlaskConfig(object):
 class FlaskTestConfig(FlaskConfig):
   TESTING = True
   DEBUG = True
-  DOMAIN = 'amanahuja.me'
-  #PORT = 5000
+  HOST = 'amanahuja.me'
   PORT = int(os.environ.get('PORT', 5000))
 
 class FlaskProductionConfig(FlaskConfig):

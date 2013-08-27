@@ -48,9 +48,10 @@ def get_issue_list():
 
 if __name__ == '__main__':
   """
+  todo: Not running as module, so use Test Configuration
+  """
   port = int(os.environ.get('PORT', 5000))
   app.debug = True
-  app.run(host='amanahuja.me', port=port)
-  """
-  from lib_stats.conf import settings
-  app.config.from_object('settings.FlaskTestConfig')
+  #app.run(host='amanahuja.me', port=port)
+  app.run(port=port)
+

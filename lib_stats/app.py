@@ -47,6 +47,10 @@ def get_issue_list():
     return issue_list
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.debug = True
-    app.run(host='0.0.0.0', port=port)
+  """
+  port = int(os.environ.get('PORT', 5000))
+  app.debug = True
+  app.run(host='amanahuja.me', port=port)
+  """
+  from lib_stats.conf import settings
+  app.config.from_object('settings.FlaskTestConfig')

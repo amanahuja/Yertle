@@ -23,11 +23,16 @@ def home():
 
 @app.route('/get_data_1/')
 def get_data_1():
-  test_dict = {"key1":1,"key2":2,"key3":3}
-  jsondata = json.dumps(test_dict)
+  jsonfile = os.path.join(DATA_DIR, 'libdata_2013-08-28.json')
+
+  with open(jsonfile, 'rb') as infile: 
+    ddata = json.load(infile)
+
+  jsondata = json.dumps(ddata)
 
   #Construct response with JSONdata
-  resp = Response (jsondata, status=200, mimetype='application/json')
+  resp = Response (jsondata, status=200, 
+      mimetype='application/json')
 
   return resp
 

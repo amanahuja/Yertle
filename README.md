@@ -24,9 +24,9 @@ You might find Yertle useful if you want to learn about or starting a project th
 
 Think of this project as a demonstration and example of how to combine these technologies. It can be readily adapted to address many common use-cases. 
 
-Use the project to understand how to architect a system that meets your needs. 
-Use the documentation to implement exactly the components you need. 
-Use the code as a working example and template to start from. 
+ * Use the project to understand how to architect a system that meets your needs. 
+ * Use the documentation to implement exactly the components you need. 
+ * Use the code as a working example and template to start from. 
 
 ## Working example
 

@@ -42,6 +42,26 @@ def get_data_1():
 
   return resp
 
+@app.route('/get_data_2/')
+def get_data_2():
+  jsonfile = os.path.join(DATA_DIR, 'libdata_2013-08-29.json')
+
+  with open(jsonfile, 'rb') as infile: 
+    ddata = json.load(infile)
+
+  jsondata = sorted(ddata,
+      key = itemgetter('followers'), 
+      reverse = True,
+      )
+
+  jsondata = json.dumps(jsondata)
+
+  #Construct response with JSONdata
+  resp = Response (jsondata, status=200, 
+      mimetype='application/json')
+
+  return resp
+
 '''
 === Helper functions == 
 Can move these to seperate file

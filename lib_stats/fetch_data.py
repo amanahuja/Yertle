@@ -86,8 +86,8 @@ def get_timestamp():
   return datetime.now().strftime('%Y-%m-%d')
 
 def get_list_of_libraries(file_path = None, size=None):
-  if file_path is None: 
-    file_path = 'data/library_list.csv'
+  if file_path is None:
+    file_path = os.path.join(DATA_DIR, 'library_list.csv')
 
   list_of_libs = []
   
@@ -104,12 +104,10 @@ def get_list_of_libraries(file_path = None, size=None):
 
 def write_data_to_file(data):
   TIMESTAMP = get_timestamp()
-  filename = 'libdata_{}'.format(TIMESTAMP)  
+  filename = 'libdata_{}.json'.format(TIMESTAMP)  
   filepath = os.path.join('data/', filename)
 
-  data_keys = data[0].keys()
-  
-  with open(filename, 'wb') as outfile: 
+  with open(filepath, 'wb') as outfile: 
     json.dump(data, outfile)
 
   return filepath

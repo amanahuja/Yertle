@@ -3,4 +3,6 @@ lib-stats
 
 Examining usage of certain (python data analysis) libraries in public repos
 
-Live on Heroku for testing: http://lib-stats.herokuapp.com/
+
+## overhaul Aug 2013
+I'm redoing this whole shiznit. Please stand by.

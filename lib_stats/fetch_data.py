@@ -88,7 +88,7 @@ def get_list_of_libraries(file_path = None, size=None):
   instream = csv.reader(open(file_path, 'rb'))
 
   for row in instream: 
-    list_of_libs.append(row.strip())
+    list_of_libs.append(row[0].strip())
 
   if size is None: 
     return list_of_libs

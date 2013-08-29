@@ -29,12 +29,12 @@ def get_data_1():
   with open(jsonfile, 'rb') as infile: 
     ddata = json.load(infile)
 
-  jsondata = json.dumps(ddata)
-
-  jsondata = sorted(jsondata,
+  jsondata = sorted(ddata,
       key = itemgetter('repo_count'), 
       reverse = True,
       )
+
+  jsondata = json.dumps(jsondata)
 
   #Construct response with JSONdata
   resp = Response (jsondata, status=200, 

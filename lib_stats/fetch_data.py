@@ -28,7 +28,9 @@ def get_counts_from_github(libs = None):
     datum = get_lib_counts_from_api(api_url, lib, base_params = {}, source='github')
     lib_data.append(datum)
 
-  return lib_data
+  outfile = write_data_to_file(lib_data)
+
+  return outfile
 
 def get_lib_counts_from_api(base_api_url, library, base_params = {}, source='github'):
   """
@@ -110,4 +112,4 @@ def write_data_to_file(data):
   with open(filename, 'wb') as outfile: 
     json.dump(data, outfile)
 
-
+  return filepath

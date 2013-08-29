@@ -103,16 +103,7 @@ def write_data_to_file(data):
 
   data_keys = data[0].keys()
   
-  '''
-  with open(filename, 'wb') as csvfile:
-    dict_writer = csv.DictWriter(csvfile, data_keys)
-    dict_writer.writer.writerow(data_keys)
-
-    for dd in data: 
-      dict_writer.writerow(dd)
-  '''
   with open(filename, 'wb') as outfile: 
-    import pdb; pdb.set_trace()
     json.dump(data, outfile)
 
 

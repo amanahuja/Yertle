@@ -11,7 +11,11 @@ celery = Celery(
   backend='mongodb://localhost',
   )
 
-@celery.task
+ROOT_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '..'))
+DATA_DIR = os.path.join(ROOT_DIR, 'data')
+
+@celery.task(name = 'fetch.github')
 def get_counts_from_github(libs = None):
   api_url = 'https://api.github.com/legacy/repos/search/'
 

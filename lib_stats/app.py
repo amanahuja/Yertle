@@ -1,8 +1,8 @@
 import os
 from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, Response
 import requests
-import simplejson as json
+import json
 
 app = Flask(__name__)
 
@@ -22,6 +22,16 @@ def home():
 === Helper functions == 
 Can move these to seperate file
 '''
+@app.route('/get_data_1/')
+def get_data_1():
+  test_dict = {"key1":1,"key2":2,"key3":3}
+  jsondata = json.dumps(test_dict)
+
+  #Construct response with JSONdata
+  resp = Response (jsondata, status=200, mimetype='application/json')
+
+  return resp
+
 def get_issue_list():
     root_url = 'https://api.github.com'
     url = root_url + '/repos/amanahuja/lib-stats/issues'

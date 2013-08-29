@@ -28,7 +28,9 @@ d3.json('/get_data_1', function(error, data1){
   // Bar graph 
   var bar = node.append("g");
   // - bar title
-  bar.append("title").text(function (d) {return d.repo_count + " repos use " + d.library_name} );
+  bar.append("title").text(function (d) {
+    return d.repo_count + " repos use " + d.library_name
+  } );
 
   // - bar rect
   bar.append("rect")
@@ -42,17 +44,15 @@ d3.json('/get_data_1', function(error, data1){
           .attr("opacity", .85)
           .attr("fill", function (d,i) {return "rgb(0, 0, " + (200 + 5 * (i % 10)) + ")";})
           .on("mouseover", function(){
-        d3.select(this).transition().duration(500)
+              d3.select(this).transition().duration(500)
                   .attr("width", function(d) { 
-                          return (d.repo_count + .1*(max_rep - d.repo_count))/60 
-                          })
-          .attr("opacity", 1);
-                  
-      })
-      .on("mouseout", function(){
-        d3.select(this).transition().duration(10)
-                  .attr("width", function(d) { return (d.repo_count / 60); } )
-          .attr("opacity", .85);
-      });
+                    return (d.repo_count + .1*(max_rep - d.repo_count))/60; })
+              .attr("opacity", 1);
+            })
+          .on("mouseout", function(){
+            d3.select(this).transition().duration(10)
+              .attr("width", function(d) { return (d.repo_count / 60); })
+                .attr("opacity", .85);
+              });
 
-});
+  });

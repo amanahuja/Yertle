@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, Response
 import requests
 import json
+from operator import itemgetter
 
 ROOT_DIR = os.path.abspath(
     os.path.join(os.path.dirname(__file__), '..'))
@@ -29,6 +30,11 @@ def get_data_1():
     ddata = json.load(infile)
 
   jsondata = json.dumps(ddata)
+
+  jsondata = sorted(jsondata,
+      key = itemgetter('repo_count'), 
+      reverse = True,
+      )
 
   #Construct response with JSONdata
   resp = Response (jsondata, status=200, 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Yertle : An example of an asynchronous architecture for data collection, analysis and presentation" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Yertle</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/amanahuja/Yertle">View on GitHub</a>
+
+          <h1 id="project_title">Yertle</h1>
+          <h2 id="project_tagline">An example of an asynchronous architecture for data collection, analysis and presentation</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/amanahuja/Yertle/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/amanahuja/Yertle/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="yertle-with-lib-stats" class="anchor" href="#yertle-with-lib-stats"><span class="octicon octicon-link"></span></a>Yertle (with lib-stats)</h1>
+
+<p>An example of an asynchronous architecture for data collection, analysis and presentation. Consists of separate layers for data collection, analysis, and presentation. Think sorta Model-View-Controller (MVC). </p>
+
+<p>Yertle leverages existing, readily available and well-tested technologies, including: </p>
+
+<ul>
+<li>
+<strong>RabbitMQ</strong> w/ <strong>Celery</strong> for the asychronous components</li>
+<li>
+<strong>cron</strong> for task scheduling</li>
+<li>
+<strong>Python</strong> w/ <strong>pandas</strong> for data collection and analysis</li>
+<li>
+<strong>Mongodb</strong> (and text flat files) for datastore and persistence</li>
+<li>
+<strong>Flask</strong> for the web framework</li>
+<li>
+<strong>nginx</strong> and <strong>uWSGI</strong> for depoyment</li>
+<li>
+<strong>d3.js</strong> w/ XHR for visualizations in the front-end. </li>
+</ul><h2>
+<a name="you-might-find-yertle-useful-if" class="anchor" href="#you-might-find-yertle-useful-if"><span class="octicon octicon-link"></span></a>You might find Yertle useful if</h2>
+
+<p>You might find Yertle useful if you want to learn about or starting a project that involves: </p>
+
+<ul>
+<li>Periodically collecting data from external sources, like with APIs. </li>
+<li>Workflows involving long-running tasks or any task that must be performed asynchronously.</li>
+<li>Output that is rendered and displayed on the web</li>
+<li>etc. </li>
+</ul><h2>
+<a name="how-to-use-yertle" class="anchor" href="#how-to-use-yertle"><span class="octicon octicon-link"></span></a>How to use Yertle</h2>
+
+<p>Think of this project as a demonstration and example of how to combine these technologies. It can be readily adapted to address many common use-cases. </p>
+
+<ul>
+<li>Use the project to understand how to architect a system that meets your needs. </li>
+<li>Use the documentation to implement exactly the components you need. </li>
+<li>Use the code as a working example and template to start from. </li>
+</ul><h2>
+<a name="working-example" class="anchor" href="#working-example"><span class="octicon octicon-link"></span></a>Working example</h2>
+
+<p>As a working example, I have implemented <strong>"lib-stats"</strong> which collects and displays information about open source python data analysis libraries. </p>
+
+<ul>
+<li>Uses the Github API to fetch and store information about certain libraries</li>
+<li>Data is collected, asynchronously, once a day.</li>
+<li>The results are stored in flat files or in mongodb</li>
+<li>The stored information is used to render a simple visualization on the web using d3.js</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Yertle maintained by <a href="https://github.com/amanahuja">amanahuja</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>

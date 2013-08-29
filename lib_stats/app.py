@@ -23,7 +23,7 @@ def home():
 
 @app.route('/get_data_1/')
 def get_data_1():
-  jsonfile = os.path.join(DATA_DIR, 'libdata_2013-08-28.json')
+  jsonfile = os.path.join(DATA_DIR, 'libdata_2013-08-29.json')
 
   with open(jsonfile, 'rb') as infile: 
     ddata = json.load(infile)

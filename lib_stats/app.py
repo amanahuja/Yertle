@@ -21,10 +21,6 @@ def home():
 #def detail(lib=None):
 #    return render_template('lib_details.html', lib=lib)
 
-'''
-=== Helper functions == 
-Can move these to seperate file
-'''
 @app.route('/get_data_1/')
 def get_data_1():
   test_dict = {"key1":1,"key2":2,"key3":3}
@@ -34,6 +30,11 @@ def get_data_1():
   resp = Response (jsondata, status=200, mimetype='application/json')
 
   return resp
+
+'''
+=== Helper functions == 
+Can move these to seperate file
+'''
 
 def get_issue_list():
     root_url = 'https://api.github.com'
@@ -58,6 +59,9 @@ def get_issue_list():
         issue_list.append(issue)
     
     return issue_list
+
+def get_lib_list():
+  pass
 
 if __name__ == '__main__':
   """

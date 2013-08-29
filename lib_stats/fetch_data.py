@@ -2,6 +2,7 @@
 import requests
 from datetime import datetime
 import os, csv
+import json
 
 from celery import Celery
 
@@ -57,7 +58,6 @@ def get_lib_counts_from_api(base_api_url, library, base_params = {}, source='git
   for r in results:
     followers += r['followers']
   
-
   #Contruct and return libinfo dict
   libinfo = {}
   libinfo['library_name'] = library
@@ -105,7 +105,7 @@ def get_list_of_libraries(file_path = None, size=None):
 def write_data_to_file(data):
   TIMESTAMP = get_timestamp()
   filename = 'libdata_{}.json'.format(TIMESTAMP)  
-  filepath = os.path.join('data/', filename)
+  filepath = os.path.join(DATA_DIR, filename)
 
   with open(filepath, 'wb') as outfile: 
     json.dump(data, outfile)

@@ -69,8 +69,21 @@ Can move these to seperate file
 
 def get_issue_list():
     root_url = 'https://api.github.com'
-    url = root_url + '/repos/amanahuja/lib-stats/issues'
-    r = requests.get(url)
+    url = root_url + '/repos/amanahuja/Yertle/issues'
+
+    try: 
+      r = requests.get(url)
+      success_flag = True
+    except:
+      success_flag = False
+    
+    if ((success_flag is False) or r.status_code == 404):
+      issue_list = [{
+        'title': 'Issues not available',
+        'body' : 'Could not retrieve issues from github', 
+        }]
+      return issue_list
+
     results = json.loads(r.content)
     
     #If list is small, get closed issues as well.

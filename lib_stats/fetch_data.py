@@ -19,6 +19,8 @@ DATA_DIR = os.path.join(ROOT_DIR, 'data')
 @celery.task(name = 'fetch.github')
 def get_counts_from_github(libs = None):
   api_url = 'https://api.github.com/legacy/repos/search/'
+  base_params = {}
+  base_params['access_token'] = 'a42e699448514e8416403911667d30a8ca3179c7'
 
   if libs is None:  
     libs = get_list_of_libraries()
@@ -26,7 +28,7 @@ def get_counts_from_github(libs = None):
   lib_data = []
 
   for lib in libs:
-    datum = get_lib_counts_from_api(api_url, lib, base_params = {}, source='github')
+    datum = get_lib_counts_from_api(api_url, lib, base_params = base_params, source='github')
     lib_data.append(datum)
 
   outfile = write_data_to_file(lib_data)

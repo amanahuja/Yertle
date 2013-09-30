@@ -3,6 +3,7 @@ d3.json('/get_data_2', function(error, data2){
   //Width and height
   var svgW = 500;
   var svgH = 1500;
+  var maxBarW = 300;
 
   var svg = d3.select(".graph2").append("svg")
           .attr("width", svgW)
@@ -37,21 +38,20 @@ d3.json('/get_data_2', function(error, data2){
           .attr("x", 150)
           .attr("y", function(d, i) {return i * 22 + 5})
           .attr("width", function(d) {
-                  //return Math.log(d.repo_count+1)*50}
-                  return d.followers / 300}
-                  )
+                  return maxBarW * (d.followers / max_fol)
+                  })
           .attr("opacity", 0.85)
           .attr("fill", function (d,i) {return "rgb(" + (200 + 5 * (i % 10)) + ", 0 ,0)";})
           .on("mouseover", function(){
         d3.select(this).transition().duration(500)
                   .attr("width", function(d) { 
-                          return (d.followers + .1*(max_fol - d.followers))/300
+                          return 1.1 * maxBarW * (d.followers / max_fol)
                           }) 
           .attr("opacity", 1);
       })
       .on("mouseout", function(){
-        d3.select(this).transition().duration(10)
-                  .attr("width", function(d) { return (d.followers / 300); } )
+        d3.select(this).transition().duration(250)
+                  .attr("width", function(d) { return maxBarW * (d.followers / max_fol); } )
           .attr("opacity", .85);
       });
 });

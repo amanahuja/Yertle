@@ -24,7 +24,7 @@ def home():
 
 @app.route('/get_data_1/')
 def get_data_1():
-  jsonfile = os.path.join(DATA_DIR, 'libdata_2013-08-29.json')
+  jsonfile = os.path.join(DATA_DIR, 'libdata_2013-08-31.json')
 
   with open(jsonfile, 'rb') as infile: 
     ddata = json.load(infile)
@@ -44,7 +44,7 @@ def get_data_1():
 
 @app.route('/get_data_2/')
 def get_data_2():
-  jsonfile = os.path.join(DATA_DIR, 'libdata_2013-08-29.json')
+  jsonfile = os.path.join(DATA_DIR, 'libdata_2013-08-31.json')
 
   with open(jsonfile, 'rb') as infile: 
     ddata = json.load(infile)
@@ -115,6 +115,6 @@ if __name__ == '__main__':
   """
   port = int(os.environ.get('PORT', 5000))
   app.debug = True
-  #app.run(host='amanahuja.me', port=port)
-  app.run(port=port)
+  app.run(host='amanahuja.me', port=port)
+  #app.run(port=port)
 

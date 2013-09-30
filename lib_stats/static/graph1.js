@@ -3,6 +3,7 @@ d3.json('/get_data_1', function(error, data1){
   //Width and height
   var svgW = 500;
   var svgH = 1500;
+  var maxBarW = 300;
 
   var svg = d3.select(".graph1").append("svg")
           .attr("width", svgW)
@@ -39,8 +40,7 @@ d3.json('/get_data_1', function(error, data1){
           .attr("x", 120)
           .attr("y", function(d, i) {return i * 22 + 5})
           .attr("width", function(d) {
-                  return 10;
-                  //return (d.repo_count / max_rep }
+                  return maxBarW * (d.repo_count / max_rep)
                   })
           .attr("title", "test")
           .attr("opacity", .85)
@@ -48,12 +48,15 @@ d3.json('/get_data_1', function(error, data1){
           .on("mouseover", function(){
               d3.select(this).transition().duration(500)
                   .attr("width", function(d) { 
-                    return (d.repo_count + .1*(max_rep - d.repo_count))/60; })
+                    return 1.1 * maxBarW * (d.repo_count / max_rep) 
+                  })
               .attr("opacity", 1);
             })
           .on("mouseout", function(){
-            d3.select(this).transition().duration(10)
-              .attr("width", function(d) { return (d.repo_count / 60); })
+            d3.select(this).transition().duration(250)
+              .attr("width", function(d) { 
+                  return maxBarW * (d.repo_count / max_rep) 
+                  })
                 .attr("opacity", .85);
               });
 

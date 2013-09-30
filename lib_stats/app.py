@@ -77,6 +77,7 @@ def get_issue_list():
     except:
       success_flag = False
     
+    #Handle failure softly. 
     if ((success_flag is False) or r.status_code == 404):
       issue_list = [{
         'title': 'Issues not available',
@@ -84,6 +85,7 @@ def get_issue_list():
         }]
       return issue_list
 
+    #Load results and continue on success
     results = json.loads(r.content)
     
     #If list is small, get closed issues as well.

@@ -10,6 +10,7 @@ d3.json('/get_data_1', function(error, data1){
 
   var max_rep = data1[0].repo_count
   console.log("max : " + max_rep)
+  console.log("len(data1) : " + data1.length)
           
   // Nodes
   var node = svg.selectAll(".node").data(data1)
@@ -38,8 +39,9 @@ d3.json('/get_data_1', function(error, data1){
           .attr("x", 120)
           .attr("y", function(d, i) {return i * 22 + 5})
           .attr("width", function(d) {
-                  return d.repo_count / 60 }
-                  )
+                  return 10;
+                  //return (d.repo_count / max_rep }
+                  })
           .attr("title", "test")
           .attr("opacity", .85)
           .attr("fill", function (d,i) {return "rgb(0, 0, " + (200 + 5 * (i % 10)) + ")";})
